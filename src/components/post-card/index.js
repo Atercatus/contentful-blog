@@ -2,6 +2,7 @@ import * as S from "./styles";
 import Link from "next/link";
 import { hrefResolver, asResolver } from "../../vendor/link-helper";
 import MoreMark from "../../svgs/more-mark";
+import { getLongdate } from "../../vendor/date-format-helper";
 
 /**
  *
@@ -13,7 +14,9 @@ const PostCard = ({ children }) => {
 
   const { fields } = post;
   const { title, description, heroImage, publishDate, tags } = fields;
+
   const hasDescription = !!description;
+  const creationDate = getLongdate(new Date(publishDate));
 
   return (
     <S.PostCard>
@@ -55,8 +58,7 @@ const PostCard = ({ children }) => {
       </S.PostMeta>
       <S.CardFooter>
         <S.Views>2000 views</S.Views>
-        <S.PublishDate>May 05, 2020</S.PublishDate>
-        {/* <S.PublishDate>{publishDate || ""}</S.PublishDate> */}
+        <S.PublishDate>{creationDate}</S.PublishDate>
       </S.CardFooter>
     </S.PostCard>
   );

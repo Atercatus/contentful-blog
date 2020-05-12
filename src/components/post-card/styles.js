@@ -34,6 +34,8 @@ export const ThumbnailContainer = styled.a`
     background: #202121;
     transition: ease opacity 0.3s;
     opacity: 0;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
   }
 `;
 
