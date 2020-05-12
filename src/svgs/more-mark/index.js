@@ -1,6 +1,6 @@
 import * as S from "./styles";
 
-const MoreMark = () => (
+const MoreMarkSVG = () => (
   <S.MoreMark
     width='24'
     height='24'
@@ -18,4 +18,4 @@ const MoreMark = () => (
   </S.MoreMark>
 );
 
-export default MoreMark;
+export default MoreMarkSVG;

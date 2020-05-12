@@ -1,7 +1,7 @@
 import * as S from "./styles";
 import Link from "next/link";
 import { hrefResolver, asResolver } from "../../vendor/link-helper";
-import MoreMark from "../../svgs/more-mark";
+import MoreMarkSVG from "../../svgs/more-mark";
 import { getLongdate } from "../../vendor/date-format-helper";
 
 /**
@@ -23,7 +23,7 @@ const PostCard = ({ children }) => {
       {!!heroImage && (
         <Link href={hrefResolver(post)} as={asResolver(post)} passHref>
           <S.ThumbnailContainer hasDescription={hasDescription}>
-            <MoreMark />
+            <MoreMarkSVG />
             <S.Thumbnail src={heroImage.fields.file.url} />
           </S.ThumbnailContainer>
         </Link>

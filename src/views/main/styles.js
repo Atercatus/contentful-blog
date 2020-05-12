@@ -11,7 +11,6 @@ export const GridCardContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   grid-column-gap: 3rem;
-  /* padding: 8rem 6.6rem; */
   padding: 8rem 0;
   width: 216rem;
 
