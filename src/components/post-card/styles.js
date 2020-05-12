@@ -70,13 +70,11 @@ export const Title = styled.h3`
   font-weight: bold;
   cursor: pointer;
   color: #2f3237;
-  line-height: 2.1rem;
 
   /* for multiline ellipsis */
   white-space: normal;
   overflow: hidden;
   text-overflow: ellipsis;
-  height: 4.2rem;
   text-align: left;
   word-wrap: break-word;
   display: -webkit-box;
@@ -108,9 +106,7 @@ export const Description = styled.p`
   /* for multiline ellipsis */
   white-space: normal;
   overflow: hidden;
-  line-height: 2.1rem;
   text-overflow: ellipsis;
-  height: 4.2rem;
   text-align: left;
   word-wrap: break-word;
   display: -webkit-box;
