@@ -3,6 +3,7 @@ import Link from "next/link";
 import { hrefResolver, asResolver } from "../../vendor/link-helper";
 import MoreMarkSVG from "../../svgs/more-mark";
 import { getLongdate } from "../../vendor/date-format-helper";
+import CalendarSVG from "../../svgs/calendar";
 
 /**
  *
@@ -23,7 +24,6 @@ const PostCard = ({ children }) => {
       {!!heroImage && (
         <Link href={hrefResolver(post)} as={asResolver(post)} passHref>
           <S.ThumbnailContainer hasDescription={hasDescription}>
-            <MoreMarkSVG />
             <S.Thumbnail src={heroImage.fields.file.url} />
           </S.ThumbnailContainer>
         </Link>
@@ -57,8 +57,9 @@ const PostCard = ({ children }) => {
         </S.SubMeta>
       </S.PostMeta>
       <S.CardFooter>
-        <S.Views>2000 views</S.Views>
+        <CalendarSVG />
         <S.PublishDate>{creationDate}</S.PublishDate>
+        <MoreMarkSVG />
       </S.CardFooter>
     </S.PostCard>
   );

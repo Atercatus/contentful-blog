@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { MoreMark } from "../../svgs/more-mark/styles";
 import { POSTCARD_GRID_COL, WINDOW_MAX_WIDTH } from "../../common/constant";
+import { CalendarSVG } from "../../svgs/calendar/styles";
 
 export const ThumbnailContainer = styled.a`
   position: relative;
@@ -13,23 +14,6 @@ export const ThumbnailContainer = styled.a`
   @media only screen and (max-width: ${WINDOW_MAX_WIDTH.NARROW_DESKTOP}px) {
     height: ${(props) => (props.hasDescription ? "15rem" : "19rem")};
     grid-column: ${POSTCARD_GRID_COL.NORMAL} span;
-  }
-
-  ${MoreMark} {
-    position: absolute;
-    box-sizing: border-box;
-    transform: translate(-0.5rem, 1rem);
-    z-index: 1;
-
-    path {
-      fill: white;
-    }
-  }
-
-  ${MoreMark}:hover {
-    path {
-      fill-opacity: 1;
-    }
   }
 
   &::after {
@@ -136,8 +120,9 @@ export const SubMeta = styled.div`
 `;
 
 export const PublishDate = styled.div`
-  color: #929294;
-  font-size: 1.2rem;
+  color: #24292e;
+  font-size: 1.4rem;
+  flex: 1 0 auto;
 `;
 
 export const TagContainer = styled.div`
@@ -180,11 +165,31 @@ export const CardFooter = styled.div`
   display: flex;
   justify-content: stretch;
   align-items: center;
-`;
 
-export const Views = styled.span`
-  font-size: 1.2rem;
-  flex: 1 0 auto;
+  ${CalendarSVG} {
+    path {
+      fill: #626569;
+    }
+    margin-right: 1rem;
+  }
+
+  ${MoreMark} {
+    box-sizing: border-box;
+    transform: translate(1rem, 0rem);
+    cursor: pointer;
+
+    path {
+      fill: #a0a0a2;
+      fill-opacity: 0.9;
+    }
+  }
+
+  ${MoreMark}:hover {
+    path {
+      fill: #24292e;
+      fill-opacity: 1;
+    }
+  }
 `;
 
 export const PostCard = styled.div`
@@ -217,12 +222,6 @@ export const PostCard = styled.div`
   &:hover {
     transform: translateY(-4px);
     box-shadow: 0 6px 35px rgba(22, 25, 29, 0.14);
-
-    ${MoreMark} {
-      path {
-        fill-opacity: 0.9;
-      }
-    }
 
     ${ThumbnailContainer}::after {
       opacity: 0.3;
