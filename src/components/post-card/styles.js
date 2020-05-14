@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { MoreMark } from "../../svgs/more-mark/styles";
+import { POSTCARD_GRID_COL, WINDOW_MAX_WIDTH } from "../../common/constant";
 
 export const ThumbnailContainer = styled.a`
   position: relative;
@@ -8,6 +9,11 @@ export const ThumbnailContainer = styled.a`
   cursor: pointer;
   display: flex;
   justify-content: flex-end;
+
+  @media only screen and (max-width: ${WINDOW_MAX_WIDTH.NARROW_DESKTOP}px) {
+    height: ${(props) => (props.hasDescription ? "15rem" : "19rem")};
+    grid-column: ${POSTCARD_GRID_COL.NORMAL} span;
+  }
 
   ${MoreMark} {
     position: absolute;
@@ -126,7 +132,7 @@ export const SubMeta = styled.div`
   align-items: center;
   width: 100%;
   flex-shrink: 0;
-  margin-bottom: 1.3rem;
+  margin: 1rem 0 1.3rem 0;
 `;
 
 export const PublishDate = styled.div`
@@ -186,7 +192,6 @@ export const PostCard = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  grid-column: 3 span;
   background: #ffffff;
   height: 38rem;
   border-radius: 5px;
@@ -194,17 +199,19 @@ export const PostCard = styled.div`
   box-shadow: 0 6px 25px rgba(23, 25, 29, 0.05);
   font-family: "Roboto", sans-serif;
   transition: ease box-shadow 0.3s, transform 0.3s;
+  grid-column: ${POSTCARD_GRID_COL.NARROW} span;
 
-  @media only screen and (max-width: 1320px) {
-    grid-column: 4 span;
+  @media only screen and (max-width: ${WINDOW_MAX_WIDTH.NARROW_DESKTOP}px) {
+    height: 34rem;
+    grid-column: ${POSTCARD_GRID_COL.NORMAL} span;
   }
 
-  @media only screen and (max-width: 990px) {
-    grid-column: 6 span;
+  @media only screen and (max-width: ${WINDOW_MAX_WIDTH.TABLET}px) {
+    grid-column: ${POSTCARD_GRID_COL.MEDIUM} span;
   }
 
-  @media only screen and (max-width: 660px) {
-    grid-column: 12 span;
+  @media only screen and (max-width: ${WINDOW_MAX_WIDTH.MOBILE}px) {
+    grid-column: ${POSTCARD_GRID_COL.WIDE} span;
   }
 
   &:hover {

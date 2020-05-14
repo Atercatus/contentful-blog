@@ -1,4 +1,9 @@
 import styled from "styled-components";
+import {
+  MAIN_GRID_TEMPLATE_COL,
+  CONTENT_WIDTH,
+  WINDOW_MAX_WIDTH,
+} from "../../common/constant";
 
 export const CardContainer = styled.div`
   display: flex;
@@ -9,39 +14,39 @@ export const CardContainer = styled.div`
 
 export const GridCardContainer = styled.div`
   display: grid;
-  grid-template-columns: repeat(12, 1fr);
+  grid-template-columns: repeat(${MAIN_GRID_TEMPLATE_COL.NORMAL}, 1fr);
   grid-column-gap: 3rem;
   padding: 8rem 0;
-  width: 216rem;
+  width: ${CONTENT_WIDTH.WIDEST_DESKTOP}rem;
 
-  @media only screen and (min-width: 2160px) {
-    grid-template-columns: repeat(18, 1fr);
+  @media only screen and (min-width: ${WINDOW_MAX_WIDTH.WIDE_DESKTOP}px) {
+    grid-template-columns: repeat(${MAIN_GRID_TEMPLATE_COL.WIDE}, 1fr);
   }
 
-  @media only screen and (max-width: 2160px) {
-    grid-template-columns: repeat(15, 1fr);
-    width: 180rem;
+  @media only screen and (max-width: ${WINDOW_MAX_WIDTH.WIDE_DESKTOP}px) {
+    grid-template-columns: repeat(${MAIN_GRID_TEMPLATE_COL.MEDIUM}, 1fr);
+    width: ${CONTENT_WIDTH.WIDE_DESKTOP}rem;
   }
 
-  @media only screen and (max-width: 1800px) {
-    grid-template-columns: repeat(12, 1fr);
-    width: 144rem;
+  @media only screen and (max-width: ${WINDOW_MAX_WIDTH.MEDIUM_DESKTOP}px) {
+    grid-template-columns: repeat(${MAIN_GRID_TEMPLATE_COL.NORMAL}, 1fr);
+    width: ${CONTENT_WIDTH.MEDIUM_DESKTOP}rem;
   }
 
-  @media only screen and (max-width: 1440px) {
-    width: 132rem;
+  @media only screen and (max-width: ${WINDOW_MAX_WIDTH.NORMAL_DESKTOP}px) {
+    width: ${CONTENT_WIDTH.NORMAL_DESKTOP}rem;
   }
 
-  @media only screen and (max-width: 1320px) {
-    width: 99rem;
+  @media only screen and (max-width: ${WINDOW_MAX_WIDTH.NARROW_DESKTOP}px) {
+    width: ${CONTENT_WIDTH.NARROW_DESKTOP}rem;
   }
 
-  @media only screen and (max-width: 990px) {
-    width: 66rem;
+  @media only screen and (max-width: ${WINDOW_MAX_WIDTH.TABLET}px) {
+    width: ${CONTENT_WIDTH.TABLET}rem;
   }
 
-  @media only screen and (max-width: 660px) {
-    width: 100%;
+  @media only screen and (max-width: ${WINDOW_MAX_WIDTH.MOBILE}px) {
+    width: ${CONTENT_WIDTH.MOBILE};
     padding: 8rem 0;
   }
 `;

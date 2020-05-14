@@ -1,4 +1,11 @@
 import styled, { css } from "styled-components";
+import {
+  WINDOW_MAX_WIDTH,
+  MAIN_GRID_TEMPLATE_COL,
+  CONTENT_WIDTH,
+  HEADLINE_SIDE_GRID_COL,
+  HEADLINE_CENTER_GRID_COL,
+} from "../../common/constant";
 
 export const Headline = styled.div`
   display: grid;
@@ -14,41 +21,67 @@ export const Headline = styled.div`
 
 export const HeadlineGridContainer = styled.div`
   display: grid;
-  grid-template-columns: repeat(12, 1fr);
+  grid-template-columns: repeat(${MAIN_GRID_TEMPLATE_COL.NORMAL}, 1fr);
   grid-column-gap: 3rem;
-  width: 216rem;
+  width: ${CONTENT_WIDTH.WIDEST_DESKTOP}rem;
   height: 100%;
   box-sizing: border-box;
 
-  @media only screen and (min-width: 2160px) {
-    grid-template-columns: repeat(18, 1fr);
+  @media only screen and (min-width: ${WINDOW_MAX_WIDTH.WIDE_DESKTOP}px) {
+    grid-template-columns: repeat(${MAIN_GRID_TEMPLATE_COL.WIDE}, 1fr);
   }
 
-  @media only screen and (max-width: 2160px) {
-    grid-template-columns: repeat(15, 1fr);
-    width: 180rem;
+  @media only screen and (max-width: ${WINDOW_MAX_WIDTH.WIDE_DESKTOP}px) {
+    grid-template-columns: repeat(${MAIN_GRID_TEMPLATE_COL.MEDIUM}, 1fr);
+    width: ${CONTENT_WIDTH.WIDE_DESKTOP}rem;
   }
 
-  @media only screen and (max-width: 1800px) {
-    grid-template-columns: repeat(12, 1fr);
-    width: 144rem;
+  @media only screen and (max-width: ${WINDOW_MAX_WIDTH.MEDIUM_DESKTOP}px) {
+    grid-template-columns: repeat(${MAIN_GRID_TEMPLATE_COL.NORMAL}, 1fr);
+    width: ${CONTENT_WIDTH.MEDIUM_DESKTOP}rem;
   }
 
-  @media only screen and (max-width: 1440px) {
-    width: 132rem;
+  @media only screen and (max-width: ${WINDOW_MAX_WIDTH.NORMAL_DESKTOP}px) {
+    width: ${CONTENT_WIDTH.NORMAL_DESKTOP}rem;
   }
 
-  @media only screen and (max-width: 1320px) {
-    width: 99rem;
+  @media only screen and (max-width: ${WINDOW_MAX_WIDTH.NARROW_DESKTOP}px) {
+    width: ${CONTENT_WIDTH.NARROW_DESKTOP}rem;
   }
 
-  @media only screen and (max-width: 990px) {
-    width: 66rem;
+  @media only screen and (max-width: ${WINDOW_MAX_WIDTH.TABLET}px) {
+    width: ${CONTENT_WIDTH.TABLET}rem;
   }
 
-  @media only screen and (max-width: 660px) {
-    width: 100%;
+  @media only screen and (max-width: ${WINDOW_MAX_WIDTH.MOBILE}px) {
+    width: ${CONTENT_WIDTH.MOBILE}rem;
     padding: 8rem 0;
+  }
+`;
+
+export const HeadlineSideGrid = css`
+  @media only screen and (min-width: ${WINDOW_MAX_WIDTH.WIDE_DESKTOP}px) {
+    grid-column: ${HEADLINE_SIDE_GRID_COL.WIDE} span;
+  }
+
+  @media only screen and (max-width: ${WINDOW_MAX_WIDTH.WIDE_DESKTOP}px) {
+    grid-column: ${HEADLINE_SIDE_GRID_COL.MEDIUM} span;
+  }
+
+  @media only screen and (max-width: ${WINDOW_MAX_WIDTH.MEDIUM_DESKTOP}px) {
+    grid-column: ${HEADLINE_SIDE_GRID_COL.NORMAL} span;
+  }
+
+  @media only screen and (max-width: ${WINDOW_MAX_WIDTH.NORMAL_DESKTOP}px) {
+  }
+
+  @media only screen and (max-width: ${WINDOW_MAX_WIDTH.NARROW_DESKTOP}px) {
+  }
+
+  @media only screen and (max-width: ${WINDOW_MAX_WIDTH.TABLET}px) {
+  }
+
+  @media only screen and (max-width: ${WINDOW_MAX_WIDTH.MOBILE}px) {
   }
 `;
 
@@ -56,46 +89,45 @@ export const SNSButtonContainer = styled.div`
   display: flex;
   justify-content: flex-start;
   flex-direction: row;
+  flex-wrap: wrap;
+  align-content: flex-start;
   height: 100%;
 
-  @media only screen and (min-width: 2160px) {
-    grid-column: 5 span;
-  }
-
-  @media only screen and (max-width: 2160px) {
-    grid-column: 4 span;
-  }
-
-  @media only screen and (max-width: 1800px) {
-    /* grid-template-columns: repeat(12, 1fr); */
-    grid-column: 3 span;
-  }
-
-  @media only screen and (max-width: 1440px) {
-  }
-
-  @media only screen and (max-width: 1320px) {
-  }
-
-  @media only screen and (max-width: 990px) {
-  }
-
-  @media only screen and (max-width: 660px) {
-  }
+  ${HeadlineSideGrid}
 `;
 
 const IconContainer = css`
   width: 4rem;
   height: 4rem;
   border-radius: 50%;
+  /* border: 1px solid #94dbd2; */
   border: 1px solid #272727;
   display: flex;
   justify-content: center;
   align-items: center;
   margin-right: 0.7rem;
+  margin-bottom: 1rem;
+  transition: ease border 0.3s;
 
   &:last-child {
     margin: 0;
+  }
+
+  svg {
+    path {
+      transition: ease fill 0.3s;
+      fill: #272727;
+    }
+  }
+
+  &:hover {
+    border: 1px solid #94dbd2;
+
+    svg {
+      path {
+        fill: #94dbd2;
+      }
+    }
   }
 `;
 
@@ -123,28 +155,28 @@ export const Profile = styled.div`
 `;
 
 export const ProfileContainer = styled.div`
-  @media only screen and (min-width: 2160px) {
-    grid-column: 8 span;
+  @media only screen and (min-width: ${WINDOW_MAX_WIDTH.WIDE_DESKTOP}px) {
+    grid-column: ${HEADLINE_CENTER_GRID_COL.WIDE} span;
   }
 
-  @media only screen and (max-width: 2160px) {
-    grid-column: 7 span;
+  @media only screen and (max-width: ${WINDOW_MAX_WIDTH.WIDE_DESKTOP}px) {
+    grid-column: ${HEADLINE_CENTER_GRID_COL.MEDIUM} span;
   }
 
-  @media only screen and (max-width: 1800px) {
-    grid-column: 6 span;
+  @media only screen and (max-width: ${WINDOW_MAX_WIDTH.MEDIUM_DESKTOP}px) {
+    grid-column: ${HEADLINE_CENTER_GRID_COL.NORMAL} span;
   }
 
-  @media only screen and (max-width: 1440px) {
+  @media only screen and (max-width: ${WINDOW_MAX_WIDTH.NORMAL_DESKTOP}px) {
   }
 
-  @media only screen and (max-width: 1320px) {
+  @media only screen and (max-width: ${WINDOW_MAX_WIDTH.NARROW_DESKTOP}px) {
   }
 
-  @media only screen and (max-width: 990px) {
+  @media only screen and (max-width: ${WINDOW_MAX_WIDTH.TABLET}px) {
   }
 
-  @media only screen and (max-width: 660px) {
+  @media only screen and (max-width: ${WINDOW_MAX_WIDTH.MOBILE}px) {
   }
 `;
 
@@ -173,29 +205,7 @@ export const StackBtn = styled.div`
 `;
 
 export const StackBtnContainer = styled.div`
-  @media only screen and (min-width: 2160px) {
-    grid-column: 5 span;
-  }
-
-  @media only screen and (max-width: 2160px) {
-    grid-column: 4 span;
-  }
-
-  @media only screen and (max-width: 1800px) {
-    grid-column: 3 span;
-  }
-
-  @media only screen and (max-width: 1440px) {
-  }
-
-  @media only screen and (max-width: 1320px) {
-  }
-
-  @media only screen and (max-width: 990px) {
-  }
-
-  @media only screen and (max-width: 660px) {
-  }
+  ${HeadlineSideGrid}
 `;
 
 export const HomepageLinkBox = styled.a`
