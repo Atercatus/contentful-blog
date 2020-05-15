@@ -1,4 +1,6 @@
 import * as S from "./styles";
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+import { tomorrow } from "react-syntax-highlighter/dist/cjs/styles/prism";
 
 export const renderers = {
   paragraph,
@@ -73,8 +75,10 @@ function code(props) {
   const { language, value } = props;
 
   return (
-    <pre>
-      <code className={language}>{value}</code>
-    </pre>
+    <S.CodeBlock>
+      <SyntaxHighlighter language={language} style={tomorrow}>
+        {value}
+      </SyntaxHighlighter>
+    </S.CodeBlock>
   );
 }

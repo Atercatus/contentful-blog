@@ -57,14 +57,6 @@ export default class MyDocument extends Document {
               rel='stylesheet'
             ></link>
 
-            {/* for Highlight */}
-            <link
-              rel='stylesheet'
-              href='//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.0/styles/ocean.min.css'
-            />
-            <script src='//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.0/highlight.min.js'></script>
-            <script>hljs.initHighlightingOnLoad();</script>
-
             {initialProps.styles}
             {sheet.getStyleElement()}
           </>

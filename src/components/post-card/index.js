@@ -35,13 +35,13 @@ const PostCard = ({ children }) => {
           </S.TitleAnchor>
         </Link>
 
-        <Link href={hrefResolver(post)} as={asResolver(post)} passHref>
-          <S.DescriptionContainer>
+        <S.DescriptionContainer>
+          <Link href={hrefResolver(post)} as={asResolver(post)} passHref>
             <S.DescriptionAnchor>
               <S.Description>{description}</S.Description>
             </S.DescriptionAnchor>
-          </S.DescriptionContainer>
-        </Link>
+          </Link>
+        </S.DescriptionContainer>
         <S.SubMeta>
           <S.TagContainer>
             {!!tags &&
@@ -57,7 +57,7 @@ const PostCard = ({ children }) => {
         </S.SubMeta>
       </S.PostMeta>
       <S.CardFooter>
-        <CalendarSVG />
+        {/* <CalendarSVG /> */}
         <S.PublishDate>{creationDate}</S.PublishDate>
         <MoreMarkSVG />
       </S.CardFooter>

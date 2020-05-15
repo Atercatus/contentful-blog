@@ -14,16 +14,16 @@ export const P = styled.p`
 `;
 
 export const H1 = styled.h1`
-  font-size: 3.6rem;
+  font-size: 4rem;
 `;
 export const H2 = styled.h2`
-  font-size: 3rem;
+  font-size: 3.6rem;
 `;
 export const H3 = styled.h3`
   font-size: 2.8rem;
 `;
 export const H4 = styled.h4`
-  font-size: 2.4rem;
+  font-size: 2.2rem;
 `;
 export const H5 = styled.h5`
   font-size: 2rem;
@@ -86,4 +86,10 @@ export const InlineCode = styled.code`
   color: #eb5757;
   border-radius: 5px;
   font-family: "Noto Sans", "Noto Sans KR", sans-serif;
+`;
+
+export const CodeBlock = styled.div`
+  pre {
+    border-radius: 5px;
+  }
 `;

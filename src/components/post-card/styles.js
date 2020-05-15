@@ -88,6 +88,7 @@ export const DescriptionContainer = styled.div`
 
 export const DescriptionAnchor = styled.a`
   cursor: pointer;
+  text-decoration: none;
   height: fit-content;
   width: 100%;
 `;
@@ -168,12 +169,12 @@ export const CardFooter = styled.div`
   justify-content: stretch;
   align-items: center;
 
-  ${CalendarSVG} {
+  /* ${CalendarSVG} {
     path {
       fill: #626569;
     }
     margin-right: 1rem;
-  }
+  } */
 
   ${MoreMark} {
     box-sizing: border-box;

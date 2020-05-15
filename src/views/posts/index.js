@@ -17,8 +17,6 @@ export const Post = ({ post }) => {
   const { title, description, mdBody, richText, heroImage } = post.fields;
   const heroImageUrl = heroImage.fields.file.url;
 
-  console.log(post);
-
   return (
     <>
       <Head>
