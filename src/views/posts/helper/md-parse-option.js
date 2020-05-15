@@ -45,7 +45,7 @@ function list(props) {
   const { ordered, children } = props;
 
   if (ordered) {
-    return <ol>{children}</ol>;
+    return <S.OL>{children}</S.OL>;
   }
 
   return <S.UL>{children}</S.UL>;

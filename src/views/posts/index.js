@@ -14,7 +14,7 @@ import TwitterSVG from "../../svgs/twitter";
 import CalendarSVG from "../../svgs/calendar";
 
 export const Post = ({ post }) => {
-  const { title, description, mdBody, richText, heroImage } = post.fields;
+  const { title, description, mdBody, richBody, heroImage } = post.fields;
   const heroImageUrl = heroImage.fields.file.url;
 
   return (
@@ -43,7 +43,7 @@ export const Post = ({ post }) => {
               <S.HeroImage src={heroImageUrl} />
             </S.Hero>
             <ReactMarkdown source={mdBody} renderers={renderers} />
-            {documentToReactComponents(richText, options)}
+            {documentToReactComponents(richBody, options)}
           </S.Article>
         </S.PostContainer>
       </Layout>
