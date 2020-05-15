@@ -13,6 +13,8 @@ export const Header = styled.header`
   align-items: center;
   position: sticky;
   top: 0;
+  box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.05);
+  z-index: 1;
 `;
 
 export const Logo = styled.a`

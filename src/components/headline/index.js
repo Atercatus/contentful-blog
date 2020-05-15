@@ -1,7 +1,7 @@
 import * as S from "./styles";
-import FacebookSVG from "../../svgs/facebook";
+import FacebookSVG from "../../svgs/facebook/stroke";
 import TwitterSVG from "../../svgs/twitter";
-import LinkedInSVG from "../../svgs/linked-in";
+import LinkedInSVG from "../../svgs/linked-in/stroke";
 import PaperPlaneSVG from "../../svgs/paper-plane";
 import HomepageSVG from "../../svgs/homepage";
 
@@ -24,7 +24,11 @@ const Headline = () => (
       </S.SNSButtonContainer>
       <S.ProfileContainer>
         <S.Profile>
-          <S.Avatar></S.Avatar>
+          <S.Avatar
+            src={
+              "https://avatars0.githubusercontent.com/u/32104982?s=460&u=f4725430276813fcd0043549c006d88690b1ab8f&v=4"
+            }
+          ></S.Avatar>
           <S.Nickname>Atercatus</S.Nickname>
           <S.Description>
             나는 원한다. 취직 나는 원한다. 취직 나는 원한다. 취직

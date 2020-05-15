@@ -3,7 +3,7 @@ import MagnifyingGlassSVG from "../../svgs/magnifying-glass";
 
 const Header = () => (
   <S.Header>
-    <S.Logo href='#'>
+    <S.Logo href='/'>
       <span>A</span>
       SERIES
     </S.Logo>

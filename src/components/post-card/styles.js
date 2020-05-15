@@ -79,6 +79,7 @@ export const Title = styled.h3`
 `;
 
 export const DescriptionContainer = styled.div`
+  width: 100%;
   font-size: 1.4rem;
   font-weight: regular;
   margin: 0.8rem 0;
@@ -92,6 +93,7 @@ export const DescriptionAnchor = styled.a`
 `;
 
 export const Description = styled.p`
+  width: 100%;
   margin: 0;
   color: #717174;
 

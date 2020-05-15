@@ -180,7 +180,7 @@ export const ProfileContainer = styled.div`
   }
 `;
 
-export const Avatar = styled.div`
+export const Avatar = styled.img`
   width: 7.5rem;
   height: 7.5rem;
   background: black;

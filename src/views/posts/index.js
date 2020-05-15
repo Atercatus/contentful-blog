@@ -1,33 +1,55 @@
 import React from "react";
 import { fetchEntries, fetchEntry } from "../../vendor/contentful-client";
 import ReactMarkdown from "react-markdown";
-import { BLOCKS, MARKS } from "@contentful/rich-text-types";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import * as S from "./styles";
+import Layout from "../../components/layout";
+import { renderers } from "./helper/md-parse-option";
+import { options } from "./helper/rich-text-parse-option";
+import Head from "next/head";
+import FacebookSVG from "../../svgs/facebook/fill";
+import MoreMarkSVG from "../../svgs/more-mark";
+import LinkedInSVG from "../../svgs/linked-in/fill";
+import TwitterSVG from "../../svgs/twitter";
+import CalendarSVG from "../../svgs/calendar";
 
 export const Post = ({ post }) => {
-  const mdBody = post.fields.mdBody;
-  const richText = post.fields.richBody;
+  const { title, description, mdBody, richText, heroImage } = post.fields;
+  const heroImageUrl = heroImage.fields.file.url;
 
-  const options = {
-    renderNode: {
-      [BLOCKS.PARAGRAPH]: (node, children) => (
-        <S.Paragraph>{children}</S.Paragraph>
-      ),
-    },
-    renderText: (text) => {
-      return text.split("\n").reduce((children, textSegment, index) => {
-        return [...children, index > 0 ? <br key={index} /> : "", textSegment];
-      }, []);
-    },
-  };
-  console.log(richText);
+  console.log(post);
 
   return (
-    <S.Article>
-      <ReactMarkdown source={mdBody} />
-      {documentToReactComponents(richText, options)}
-    </S.Article>
+    <>
+      <Head>
+        <title>{title}</title>
+      </Head>
+      <Layout>
+        <S.PostContainer>
+          <S.Article>
+            <S.Title>{title}</S.Title>
+            <S.Description>{description}</S.Description>
+            <S.PostMeta>
+              <S.PublishDate>
+                <CalendarSVG width={20} height={20} />
+                May 05, 2020
+              </S.PublishDate>
+              <S.SocialBtnContainer>
+                <TwitterSVG width={20} height={20} />
+                <FacebookSVG width={20} height={20} />
+                <LinkedInSVG width={20} height={20} />
+                <MoreMarkSVG />
+              </S.SocialBtnContainer>
+            </S.PostMeta>
+            <S.Hero>
+              <S.HeroImage src={heroImageUrl} />
+            </S.Hero>
+            <ReactMarkdown source={mdBody} renderers={renderers} />
+            {documentToReactComponents(richText, options)}
+          </S.Article>
+        </S.PostContainer>
+      </Layout>
+    </>
   );
 };
 
