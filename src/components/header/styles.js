@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { MagnifyingGlass } from "../../svgs/magnifying-glass/styles";
+import { WINDOW_MAX_WIDTH } from "../../common/constant";
 
 export const Header = styled.header`
   width: 100%;
@@ -15,6 +16,30 @@ export const Header = styled.header`
   top: 0;
   box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.05);
   z-index: 1;
+
+  @media only screen and (max-width: ${WINDOW_MAX_WIDTH.WIDE_DESKTOP}px) {
+    padding: 0 6rem;
+  }
+
+  @media only screen and (max-width: ${WINDOW_MAX_WIDTH.MEDIUM_DESKTOP}px) {
+    padding: 0 5rem;
+  }
+
+  @media only screen and (max-width: ${WINDOW_MAX_WIDTH.NORMAL_DESKTOP}px) {
+    padding: 0 4rem;
+  }
+
+  @media only screen and (max-width: ${WINDOW_MAX_WIDTH.NARROW_DESKTOP}px) {
+    padding: 0 3rem;
+  }
+
+  @media only screen and (max-width: ${WINDOW_MAX_WIDTH.TABLET}px) {
+    padding: 0 2rem;
+  }
+
+  @media only screen and (max-width: ${WINDOW_MAX_WIDTH.MOBILE}px) {
+    padding: 0 1rem;
+  }
 `;
 
 export const Logo = styled.a`

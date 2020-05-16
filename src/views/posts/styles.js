@@ -1,13 +1,20 @@
 import styled from "styled-components";
 import { MoreMark } from "../../svgs/more-mark/styles";
 import { CalendarSVG } from "../../svgs/calendar/styles";
+import { POST_CONTENT_WIDTH } from "../../common/constant";
 
 export const Article = styled.article`
   font-family: "Noto Sans", "Noto Sans KR", sans-serif;
   font-size: 1.8rem;
   color: #222426;
-  max-width: 92rem;
+  max-width: ${POST_CONTENT_WIDTH / 10}rem;
   padding: 2rem 0 10rem 0;
+  box-sizing: border-box;
+
+  @media only screen and (max-width: ${POST_CONTENT_WIDTH}px) {
+    width: 100%;
+    padding: 2rem 1rem 10rem 1rem;
+  }
 `;
 
 export const PostContainer = styled.div`
@@ -35,6 +42,10 @@ export const PostMeta = styled.div`
   justify-content: space-between;
   align-items: center;
   margin: 4rem 0 5rem 0;
+
+  @media only screen and (max-width: ${POST_CONTENT_WIDTH}px) {
+    margin: 2rem 0 2.5rem 0;
+  }
 `;
 
 export const PublishDate = styled.div`
@@ -44,10 +55,16 @@ export const PublishDate = styled.div`
 
   ${CalendarSVG} {
     margin-right: 1rem;
+
+    @media only screen and (max-width: ${POST_CONTENT_WIDTH}px) {
+      display: none;
+    }
   }
 `;
 
 export const SocialBtnContainer = styled.div`
+  align-self: flex-end;
+
   ${MoreMark} {
     transform: rotate(90deg);
   }
@@ -64,6 +81,15 @@ export const SocialBtnContainer = styled.div`
 
     &:hover:not(:last-child) {
       transform: translateY(-0.4rem);
+    }
+
+    @media only screen and (max-width: ${POST_CONTENT_WIDTH}px) {
+      align-items: flex-start;
+      margin: 0 1rem 0 0;
+
+      &:last-child {
+        margin: 0;
+      }
     }
   }
 `;

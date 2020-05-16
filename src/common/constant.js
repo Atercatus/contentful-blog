@@ -45,3 +45,5 @@ export const POSTCARD_GRID_COL = {
   MEDIUM: 6,
   WIDE: 12,
 };
+
+export const POST_CONTENT_WIDTH = 920;
