@@ -1,0 +1,15 @@
+export const TAG_COLOR = {
+  javascript: "#3C57E1",
+  web: "#FF6661",
+  "react.js": "#FB4747",
+  "next.js": "#FAD000",
+  database: "#14AAF5",
+  wedev: "#EB96EB",
+  til: "#FF9933",
+  aws: "#6ACCBC",
+  algorithm: "#6ACCBC",
+  typescript: "#808080",
+  java: "#B8255F",
+  "nest.js": "#4073FF",
+  default: "#292929",
+};

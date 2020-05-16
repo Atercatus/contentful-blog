@@ -1,10 +1,8 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
-export const P = styled.p`
-  font-size: 1.8rem;
-
+const Anchor = css`
   a {
-    color: #0366d6;
+    color: #4b87e2;
     text-decoration: none;
 
     &:hover {
@@ -13,23 +11,39 @@ export const P = styled.p`
   }
 `;
 
+export const P = styled.p`
+  font-size: 1.8rem;
+
+  ${Anchor}
+`;
+
+const headingMargin = css`
+  margin: 6.5rem 0 3rem 0;
+`;
+
 export const H1 = styled.h1`
   font-size: 4rem;
+  ${headingMargin}
 `;
 export const H2 = styled.h2`
   font-size: 3.6rem;
+  ${headingMargin}
 `;
 export const H3 = styled.h3`
   font-size: 2.8rem;
+  ${headingMargin}
 `;
 export const H4 = styled.h4`
   font-size: 2.2rem;
+  ${headingMargin}
 `;
 export const H5 = styled.h5`
   font-size: 2rem;
+  ${headingMargin}
 `;
 export const H6 = styled.h6`
   font-size: 1.8rem;
+  ${headingMargin}
 `;
 
 export const Blockquote = styled.blockquote`
@@ -60,6 +74,8 @@ export const OL = styled.ol`
 
 export const LI = styled.li`
   margin-top: 0.8rem;
+
+  ${Anchor}
 `;
 
 export const HR = styled.hr`
@@ -81,7 +97,7 @@ export const Image = styled.img`
 
 export const InlineCode = styled.code`
   background: #ededeb;
-  padding: 0.3rem 0.5rem;
+  padding: 0rem 0.5rem;
   box-sizing: border-box;
   color: #eb5757;
   border-radius: 5px;

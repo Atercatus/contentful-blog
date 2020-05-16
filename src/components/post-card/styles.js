@@ -33,7 +33,7 @@ export const Thumbnail = styled.img`
   position: relative;
   width: 100%;
   height: 100%;
-  object-fit: fill;
+  object-fit: cover;
   transition: ease transform 0.3s;
   z-index: 0;
   border-top-left-radius: 5px;

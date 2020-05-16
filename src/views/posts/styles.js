@@ -7,6 +7,7 @@ export const Article = styled.article`
   font-size: 1.8rem;
   color: #222426;
   max-width: 92rem;
+  padding: 2rem 0 10rem 0;
 `;
 
 export const PostContainer = styled.div`
@@ -54,10 +55,15 @@ export const SocialBtnContainer = styled.div`
   svg {
     margin-left: 2rem;
     cursor: pointer;
+    transition: ease transform 0.3s;
 
     path {
       fill: #292929;
       fill-opacity: 1;
+    }
+
+    &:hover:not(:last-child) {
+      transform: translateY(-0.4rem);
     }
   }
 `;
@@ -69,4 +75,26 @@ export const Hero = styled.div`
 export const HeroImage = styled.img`
   width: 100%;
   object-fit: fill;
+`;
+
+export const CaptionContainer = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const Caption = styled.a`
+  text-decoration: none;
+  font-size: 1.4rem;
+  /* color: #7689b4; */
+  color: #757575;
+`;
+
+export const TagContainer = styled.div`
+  width: 100%;
+  margin-bottom: 3rem;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
 `;

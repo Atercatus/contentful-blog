@@ -24,7 +24,7 @@ const PostCard = ({ children }) => {
       {!!heroImage && (
         <Link href={hrefResolver(post)} as={asResolver(post)} passHref>
           <S.ThumbnailContainer hasDescription={hasDescription}>
-            <S.Thumbnail src={heroImage.fields.file.url} />
+            <S.Thumbnail src={`${heroImage.fields.file.url}?w=400&h=300`} />
           </S.ThumbnailContainer>
         </Link>
       )}

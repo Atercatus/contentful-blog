@@ -12,10 +12,12 @@ import MoreMarkSVG from "../../svgs/more-mark";
 import LinkedInSVG from "../../svgs/linked-in/fill";
 import TwitterSVG from "../../svgs/twitter";
 import CalendarSVG from "../../svgs/calendar";
+import TagLabel from "../../components/tag-label";
 
 export const Post = ({ post }) => {
-  const { title, description, mdBody, richBody, heroImage } = post.fields;
+  const { title, description, mdBody, richBody, heroImage, tags } = post.fields;
   const heroImageUrl = heroImage.fields.file.url;
+  const [caption, source] = heroImage.fields.description.split("\n");
 
   return (
     <>
@@ -27,6 +29,9 @@ export const Post = ({ post }) => {
           <S.Article>
             <S.Title>{title}</S.Title>
             <S.Description>{description}</S.Description>
+            <S.TagContainer>
+              {!!tags && tags.map((tag) => <TagLabel key={tag} tag={tag} />)}
+            </S.TagContainer>
             <S.PostMeta>
               <S.PublishDate>
                 <CalendarSVG width={20} height={20} />
@@ -39,8 +44,12 @@ export const Post = ({ post }) => {
                 <MoreMarkSVG />
               </S.SocialBtnContainer>
             </S.PostMeta>
+
             <S.Hero>
               <S.HeroImage src={heroImageUrl} />
+              <S.CaptionContainer>
+                <S.Caption href={source}>{caption}</S.Caption>
+              </S.CaptionContainer>
             </S.Hero>
             <ReactMarkdown source={mdBody} renderers={renderers} />
             {documentToReactComponents(richBody, options)}
