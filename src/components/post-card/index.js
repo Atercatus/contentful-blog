@@ -4,6 +4,7 @@ import { hrefResolver, asResolver } from "../../vendor/link-helper";
 import MoreMarkSVG from "../../svgs/more-mark";
 import { getLongdate } from "../../vendor/date-format-helper";
 import CalendarSVG from "../../svgs/calendar";
+import TagLabel from "../tag-label";
 
 /**
  *
@@ -47,10 +48,11 @@ const PostCard = ({ children }) => {
             {!!tags &&
               tags.map((tag) => {
                 return (
-                  <S.Tag key={tag} href='#'>
-                    <S.TagMark>#</S.TagMark>
-                    {tag}
-                  </S.Tag>
+                  // <S.Tag key={tag} href='#'>
+                  //   <S.TagMark>#</S.TagMark>
+                  //   {tag}
+                  // </S.Tag>
+                  <TagLabel key={tag} href='#' tag={tag} />
                 );
               })}
           </S.TagContainer>
