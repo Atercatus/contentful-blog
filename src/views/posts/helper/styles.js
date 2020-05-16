@@ -4,6 +4,7 @@ const Anchor = css`
   a {
     color: #4b87e2;
     text-decoration: none;
+    word-wrap: break-word;
 
     &:hover {
       text-decoration: underline;
@@ -102,6 +103,7 @@ export const InlineCode = styled.code`
   color: #eb5757;
   border-radius: 5px;
   font-family: "Noto Sans", "Noto Sans KR", sans-serif;
+  word-wrap: break-word;
 `;
 
 export const CodeBlock = styled.div`
