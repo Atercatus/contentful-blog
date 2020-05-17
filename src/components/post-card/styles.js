@@ -143,6 +143,7 @@ export const TagContainer = styled.div`
   ${TagLabel} {
     font-size: 1.4rem;
     font-weight: 300;
+    padding: 0.35rem 0.5rem 0.4rem;
   }
 `;
 
