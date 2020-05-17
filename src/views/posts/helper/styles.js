@@ -1,21 +1,17 @@
 import styled, { css } from "styled-components";
 
-const Anchor = css`
-  a {
-    color: #4b87e2;
-    text-decoration: none;
-    word-wrap: break-word;
+export const Anchor = styled.a`
+  color: #4b87e2;
+  text-decoration: none;
+  word-wrap: break-word;
 
-    &:hover {
-      text-decoration: underline;
-    }
+  &:hover {
+    text-decoration: underline;
   }
 `;
 
 export const P = styled.p`
   font-size: 1.8rem;
-
-  ${Anchor}
 `;
 
 const headingMargin = css`
@@ -75,8 +71,6 @@ export const OL = styled.ol`
 
 export const LI = styled.li`
   margin-top: 0.8rem;
-
-  ${Anchor}
 `;
 
 export const HR = styled.hr`
@@ -98,16 +92,51 @@ export const Image = styled.img`
 
 export const InlineCode = styled.code`
   background: #ededeb;
-  padding: 0rem 0.5rem;
+  padding: 0rem 0.5rem 0.1rem 0.5rem;
   box-sizing: border-box;
   color: #eb5757;
   border-radius: 5px;
   font-family: "Noto Sans", "Noto Sans KR", sans-serif;
   word-wrap: break-word;
+  line-height: 0;
 `;
 
 export const CodeBlock = styled.div`
   pre {
     border-radius: 5px;
   }
+`;
+
+export const Table = styled.table`
+  width: 100%;
+  border-collapse: collapse;
+`;
+
+export const TableHead = styled.thead`
+  word-break: break-word;
+  margin: 0;
+  padding: 1rem 0.7rem;
+  color: white;
+  background: #2b2b33;
+`;
+
+export const TableBody = styled.tbody``;
+
+export const TableRow = styled.tr`
+  &:nth-child(2n - 1):not(:only-child) {
+    background: rgba(43, 43, 51, 0.05);
+  }
+`;
+
+export const TableCell = css`
+  text-align: left;
+  word-break: break-word;
+  margin: 0;
+  padding: 1rem 0.7rem;
+`;
+export const TD = styled.td`
+  ${TableCell}
+`;
+export const TH = styled.th`
+  ${TableCell}
 `;

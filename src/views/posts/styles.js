@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { MoreMark } from "../../svgs/more-mark/styles";
 import { CalendarSVG } from "../../svgs/calendar/styles";
 import { POST_CONTENT_WIDTH } from "../../common/constant";
+import { Anchor } from "./helper/styles";
 
 export const Article = styled.article`
   font-family: "Noto Sans", "Noto Sans KR", sans-serif;
@@ -15,6 +16,8 @@ export const Article = styled.article`
     width: 100%;
     padding: 2rem 1rem 10rem 1rem;
   }
+
+  ${Anchor}
 `;
 
 export const PostContainer = styled.div`

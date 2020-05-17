@@ -105,8 +105,7 @@ const IconContainer = css`
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-right: 0.7rem;
-  margin-bottom: 1rem;
+  margin: 0 0.7rem 1rem 0;
   transition: ease border 0.3s;
 
   &:last-child {
@@ -152,10 +151,6 @@ export const Profile = styled.div`
   height: 100%;
   font-family: "Roboto", sans-serif;
   color: #202021;
-
-  /* @media only screen and (max-width: ${WINDOW_MAX_WIDTH.TABLET}px) {
-    justify-content: space-between;
-  } */
 `;
 
 export const ProfileContainer = styled.div`
@@ -178,6 +173,7 @@ export const ProfileContainer = styled.div`
   }
 
   @media only screen and (max-width: ${WINDOW_MAX_WIDTH.TABLET}px) {
+    margin: 1rem 0 1.7rem 0;
   }
 
   @media only screen and (max-width: ${WINDOW_MAX_WIDTH.MOBILE}px) {
@@ -185,8 +181,8 @@ export const ProfileContainer = styled.div`
 `;
 
 export const Avatar = styled.img`
-  width: 7.5rem;
-  height: 7.5rem;
+  width: 13.5rem;
+  height: 13.5rem;
   background: black;
   border-radius: 50%;
   margin-bottom: 2rem;
@@ -194,15 +190,13 @@ export const Avatar = styled.img`
 
 export const Nickname = styled.h3`
   font-size: 2.4rem;
-  margin: 0;
-  margin-bottom: 2rem;
+  margin: 0 0 2rem 0;
 `;
 export const Description = styled.p`
   text-align: center;
   font-size: 1.4rem;
   font-weight: normal;
   margin: 0;
-  margin-bottom: 1rem;
 `;
 
 export const StackBtn = styled.div`
