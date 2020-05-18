@@ -5,7 +5,7 @@ import {
   CONTENT_WIDTH,
   HEADLINE_SIDE_GRID_COL,
   HEADLINE_CENTER_GRID_COL,
-} from "../../common/constant";
+} from "../../common/constants/grid-system";
 
 export const Headline = styled.div`
   display: grid;
@@ -14,8 +14,8 @@ export const Headline = styled.div`
   width: 100%;
   background: #f2f3f6;
   border-bottom: 1px solid #e6eaea;
-  padding: 6rem 0;
-  height: 30rem;
+  padding: 4rem 0;
+  height: 42rem;
   box-sizing: border-box;
 `;
 
@@ -50,12 +50,11 @@ export const HeadlineGridContainer = styled.div`
   }
 
   @media only screen and (max-width: ${WINDOW_MAX_WIDTH.TABLET}px) {
-    width: ${CONTENT_WIDTH.TABLET}rem;
-  }
-
-  @media only screen and (max-width: ${WINDOW_MAX_WIDTH.MOBILE}px) {
-    width: ${CONTENT_WIDTH.MOBILE}rem;
-    padding: 8rem 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
   }
 `;
 
@@ -79,6 +78,7 @@ export const HeadlineSideGrid = css`
   }
 
   @media only screen and (max-width: ${WINDOW_MAX_WIDTH.TABLET}px) {
+    height: auto;
   }
 
   @media only screen and (max-width: ${WINDOW_MAX_WIDTH.MOBILE}px) {
@@ -105,8 +105,7 @@ const IconContainer = css`
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-right: 0.7rem;
-  margin-bottom: 1rem;
+  margin: 0 0.7rem 1rem 0;
   transition: ease border 0.3s;
 
   &:last-child {
@@ -146,7 +145,7 @@ export const PaperPlaneSVGBox = styled.a`
 
 export const Profile = styled.div`
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   flex-direction: column;
   height: 100%;
@@ -174,6 +173,7 @@ export const ProfileContainer = styled.div`
   }
 
   @media only screen and (max-width: ${WINDOW_MAX_WIDTH.TABLET}px) {
+    margin: 1rem 0 1.7rem 0;
   }
 
   @media only screen and (max-width: ${WINDOW_MAX_WIDTH.MOBILE}px) {
@@ -181,15 +181,16 @@ export const ProfileContainer = styled.div`
 `;
 
 export const Avatar = styled.img`
-  width: 7.5rem;
-  height: 7.5rem;
+  width: 13.5rem;
+  height: 13.5rem;
   background: black;
   border-radius: 50%;
+  margin-bottom: 2rem;
 `;
 
 export const Nickname = styled.h3`
   font-size: 2.4rem;
-  margin: 0;
+  margin: 0 0 2rem 0;
 `;
 export const Description = styled.p`
   text-align: center;

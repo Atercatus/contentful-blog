@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { TAG_COLOR } from "../../common/color-table";
+import { TAG_COLOR } from "../../common/constants/color-table";
 
 export const TagLabel = styled.a`
   font-size: 1.8rem;

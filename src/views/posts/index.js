@@ -13,6 +13,7 @@ import LinkedInSVG from "../../svgs/linked-in/fill";
 import TwitterSVG from "../../svgs/twitter";
 import CalendarSVG from "../../svgs/calendar";
 import TagLabel from "../../components/tag-label";
+import { spr } from "../../vendor/spr";
 
 export const Post = ({ post }) => {
   const { title, description, mdBody, richBody, heroImage, tags } = post.fields;
@@ -78,10 +79,7 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params, res }) {
-  // Serverless Pre-Rendering(SPR): https://vercel.com/blog/serverless-pre-rendering
-  if (res) {
-    res.setHeader("Cache-Control", "s-maxage=1, stale-while-revalidate");
-  }
+  spr(res);
 
   const { id } = params;
   const post = await fetchEntry(id);

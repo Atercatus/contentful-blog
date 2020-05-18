@@ -1,7 +1,11 @@
 import styled from "styled-components";
 import { MoreMark } from "../../svgs/more-mark/styles";
-import { POSTCARD_GRID_COL, WINDOW_MAX_WIDTH } from "../../common/constant";
+import {
+  POSTCARD_GRID_COL,
+  WINDOW_MAX_WIDTH,
+} from "../../common/constants/grid-system";
 import { CalendarSVG } from "../../svgs/calendar/styles";
+import { TagLabel } from "../tag-label/styles";
 
 export const ThumbnailContainer = styled.a`
   position: relative;
@@ -42,6 +46,7 @@ export const Thumbnail = styled.img`
 
 export const PostMeta = styled.div`
   width: 100%;
+  /* height: 16rem; */
   padding: 1.5rem 1.6rem 0 1.6rem;
   flex: 1 0 auto;
   box-sizing: border-box;
@@ -119,7 +124,11 @@ export const SubMeta = styled.div`
   align-items: center;
   width: 100%;
   flex-shrink: 0;
-  margin: 1rem 0 1.3rem 0;
+  margin: 1rem 0 1rem 0;
+
+  @media only screen and (max-width: ${WINDOW_MAX_WIDTH.NARROW_DESKTOP}px) {
+    margin: 0 0 1rem 0;
+  }
 `;
 
 export const PublishDate = styled.div`
@@ -134,27 +143,10 @@ export const TagContainer = styled.div`
   align-items: center;
   flex-direction: row;
 
-  span:last-child {
-    margin-right: 0;
-  }
-`;
-
-export const TagMark = styled.span`
-  font-weight: bold;
-  color: #717174;
-`;
-
-export const Tag = styled.a`
-  font-size: 1.3rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-right: 1rem;
-  text-decoration: none;
-  color: #929294;
-
-  &:hover {
-    color: #2f3237;
+  ${TagLabel} {
+    font-size: 1.4rem;
+    font-weight: 300;
+    padding: 0.35rem 0.5rem 0.4rem;
   }
 `;
 
@@ -201,7 +193,7 @@ export const PostCard = styled.div`
   justify-content: center;
   align-items: center;
   background: #ffffff;
-  height: 38rem;
+  height: 40rem;
   border-radius: 5px;
   margin-bottom: 3.5rem;
   box-shadow: 0 6px 25px rgba(23, 25, 29, 0.05);
@@ -210,7 +202,7 @@ export const PostCard = styled.div`
   grid-column: ${POSTCARD_GRID_COL.NARROW} span;
 
   @media only screen and (max-width: ${WINDOW_MAX_WIDTH.NARROW_DESKTOP}px) {
-    height: 34rem;
+    height: 36rem;
     grid-column: ${POSTCARD_GRID_COL.NORMAL} span;
   }
 

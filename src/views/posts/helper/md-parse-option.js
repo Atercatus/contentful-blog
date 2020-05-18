@@ -12,6 +12,12 @@ export const renderers = {
   image,
   inlineCode,
   code,
+  link,
+  table,
+  tableHead,
+  tableBody,
+  tableRow,
+  tableCell,
 };
 
 function paragraph(props) {
@@ -81,4 +87,32 @@ function code(props) {
       </SyntaxHighlighter>
     </S.CodeBlock>
   );
+}
+
+function table(props) {
+  return <S.Table>{props.children}</S.Table>;
+}
+
+function link(props) {
+  const { href, children } = props;
+
+  return <S.Anchor href={href}>{children}</S.Anchor>;
+}
+function tableHead(props) {
+  return <S.TableHead>{props.children}</S.TableHead>;
+}
+function tableBody(props) {
+  return <S.TableBody>{props.children}</S.TableBody>;
+}
+function tableRow(props) {
+  return <S.TableRow>{props.children}</S.TableRow>;
+}
+function tableCell(props) {
+  const { isHeader, children } = props;
+
+  if (isHeader) {
+    return <S.TH>{children}</S.TH>;
+  }
+
+  return <S.TD>{children}</S.TD>;
 }
