@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { MoreMark } from "../../svgs/more-mark/styles";
 import { CalendarSVG } from "../../svgs/calendar/styles";
-import { POST_CONTENT_WIDTH } from "../../common/constant";
+import { POST_CONTENT_WIDTH } from "../../common/constants/grid-system";
 import { Anchor } from "./helper/styles";
 
 export const Article = styled.article`

@@ -47,13 +47,7 @@ const PostCard = ({ children }) => {
           <S.TagContainer>
             {!!tags &&
               tags.map((tag) => {
-                return (
-                  // <S.Tag key={tag} href='#'>
-                  //   <S.TagMark>#</S.TagMark>
-                  //   {tag}
-                  // </S.Tag>
-                  <TagLabel key={tag} href='#' tag={tag} />
-                );
+                return <TagLabel key={tag} href='#' tag={tag} />;
               })}
           </S.TagContainer>
         </S.SubMeta>

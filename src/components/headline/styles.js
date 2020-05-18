@@ -5,7 +5,7 @@ import {
   CONTENT_WIDTH,
   HEADLINE_SIDE_GRID_COL,
   HEADLINE_CENTER_GRID_COL,
-} from "../../common/constant";
+} from "../../common/constants/grid-system";
 
 export const Headline = styled.div`
   display: grid;

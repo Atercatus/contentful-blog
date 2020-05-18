@@ -3,7 +3,7 @@ import {
   MAIN_GRID_TEMPLATE_COL,
   CONTENT_WIDTH,
   WINDOW_MAX_WIDTH,
-} from "../../common/constant";
+} from "../../common/constants/grid-system";
 
 export const CardContainer = styled.div`
   display: flex;
@@ -50,3 +50,5 @@ export const GridCardContainer = styled.div`
     padding: 8rem 0;
   }
 `;
+
+export const Sentinel = styled.div``;
