@@ -1,24 +1,15 @@
 import * as S from "./styles";
-import { useEffect, useState } from "react";
 import Head from "next/head";
-import { fetchEntries } from "../../vendor/contentful-client";
 import Layout from "../../components/layout";
 import Headline from "../../components/headline";
 import PostCard from "../../components/post-card";
-import { BLOG_POST_CONTENT_TYPE } from "../../common/constant";
+import useInfiniteScroll from "./hooks/use-infinite-scroll";
+import { fetchEntries } from "../../vendor/contentful-client";
+import { getPaginationQuery, SKIP_GAP } from "./helper/configure-pagination";
+import { spr } from "../../vendor/spr";
 
-export const Main = () => {
-  const [posts, setPosts] = useState([]);
-
-  useEffect(() => {
-    async function getPosts() {
-      const allPosts = await fetchEntries({
-        content_type: BLOG_POST_CONTENT_TYPE,
-      });
-      setPosts([...allPosts]);
-    }
-    getPosts();
-  }, []);
+export const Main = ({ initialSkip, initialPosts }) => {
+  const { Sentinel, posts } = useInfiniteScroll(initialSkip, initialPosts);
 
   return (
     <Layout>
@@ -33,8 +24,17 @@ export const Main = () => {
                 <PostCard key={post.fields.slug}>{post}</PostCard>
               ))
             : null}
+          <S.Sentinel ref={Sentinel} />
         </S.GridCardContainer>
       </S.CardContainer>
     </Layout>
   );
 };
+
+export async function getStaticProps({ res }) {
+  spr(res);
+
+  const initialPosts = await fetchEntries(getPaginationQuery({ skip: 0 }));
+
+  return { props: { initialSkip: SKIP_GAP, initialPosts } };
+}
