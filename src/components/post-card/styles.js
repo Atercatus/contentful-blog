@@ -1,6 +1,9 @@
 import styled from "styled-components";
 import { MoreMark } from "../../svgs/more-mark/styles";
-import { POSTCARD_GRID_COL, WINDOW_MAX_WIDTH } from "../../common/constant";
+import {
+  POSTCARD_GRID_COL,
+  WINDOW_MAX_WIDTH,
+} from "../../common/constants/grid-system";
 import { CalendarSVG } from "../../svgs/calendar/styles";
 import { TagLabel } from "../tag-label/styles";
 

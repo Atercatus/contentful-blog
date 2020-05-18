@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { MagnifyingGlass } from "../../svgs/magnifying-glass/styles";
-import { WINDOW_MAX_WIDTH } from "../../common/constant";
+import { WINDOW_MAX_WIDTH } from "../../common/constants/grid-system";
 
 export const Header = styled.header`
   width: 100%;
