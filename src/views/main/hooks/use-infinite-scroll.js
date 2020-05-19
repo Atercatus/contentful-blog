@@ -6,40 +6,50 @@ import {
   SKIP_GAP,
 } from "../helper/configure-pagination";
 
-const useInfiniteScroll = (initialSkip, initialPosts) => {
+const useInfiniteScroll = (initialSkip, initialPosts, initialTotal) => {
+  const sentinel = useRef();
+  const skip = useRef(initialSkip);
+  const [total, setTotal] = useState(initialTotal);
   const [posts, setPosts] = useState(initialPosts);
-  const [skip, setSkip] = useState(initialSkip);
-  const Sentinel = useRef();
+  const [isFetching, setIsFetching] = useState(false);
 
   useEffect(() => {
     async function fetchPosts() {
-      const newPosts = await fetchEntries(getPaginationQuery({ skip }));
+      setIsFetching(true);
 
-      setPosts((prePosts) => [...prePosts, ...newPosts]);
+      const { entries, total: Total } = await fetchEntries(
+        getPaginationQuery({ skip: skip.current })
+      );
+
+      if (entries.length) {
+        setPosts((prePosts) => [...prePosts, ...entries]);
+      }
+
+      const maxTotal = Math.max(Total, total);
+      setTotal(maxTotal);
+      skip.current = Math.min(maxTotal, skip.current + SKIP_GAP);
+
+      setIsFetching(false);
     }
 
-    fetchPosts();
-  }, [skip]);
-
-  useEffect(() => {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (!entry.isIntersecting) {
           return;
         }
 
-        setSkip((preSkip) => preSkip + SKIP_GAP);
+        fetchPosts();
       });
     }, OPTION);
 
-    observer.observe(Sentinel.current);
+    observer.observe(sentinel.current);
 
     return () => {
-      observer.unobserve(Sentinel.current);
+      observer.unobserve(sentinel.current);
     };
-  }, []);
+  }, [total]);
 
-  return { Sentinel, posts };
+  return { sentinel, posts, isFetching };
 };
 
 export default useInfiniteScroll;

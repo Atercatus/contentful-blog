@@ -62,13 +62,13 @@ export const Post = ({ post }) => {
 };
 
 export async function getStaticPaths() {
-  const posts = await fetchEntries({
+  const { entries } = await fetchEntries({
     content_type: "blogPost",
     "fields.slug[exists]": true,
     select: "sys.id,fields.slug",
   });
 
-  const paths = posts.map((post) => {
+  const paths = entries.map((post) => {
     return { params: { slug: post.fields.slug, id: post.sys.id } };
   });
 

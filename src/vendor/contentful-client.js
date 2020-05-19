@@ -4,9 +4,10 @@ const client = require("contentful").createClient({
 });
 
 export async function fetchEntries(query) {
-  const entries = await client.getEntries(query);
+  const result = await client.getEntries(query);
+  const { items, total } = result;
 
-  if (entries.items) return entries.items;
+  if (items) return { entries: items, total };
 
   console.log(`Error getting Entries for ${contentType.name}`);
 }
