@@ -3,7 +3,6 @@ import Link from "next/link";
 import { hrefResolver, asResolver } from "../../vendor/link-helper";
 import MoreMarkSVG from "../../svgs/more-mark";
 import { getLongdate } from "../../vendor/date-format-helper";
-import CalendarSVG from "../../svgs/calendar";
 import TagLabel from "../tag-label";
 
 /**
