@@ -11,7 +11,8 @@ export const Anchor = styled.a`
 `;
 
 export const P = styled.p`
-  font-size: 1.8rem;
+  font-size: 1.9rem;
+  line-height: 3.5rem;
 `;
 
 const headingMargin = css`

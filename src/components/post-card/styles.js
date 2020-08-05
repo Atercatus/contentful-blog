@@ -4,7 +4,7 @@ import {
   POSTCARD_GRID_COL,
   WINDOW_MAX_WIDTH,
 } from "../../common/constants/grid-system";
-import { TagLabel } from "../tag-label/styles";
+import { TagLabel, TagLabelEffect } from "../tag-label/styles";
 
 export const ThumbnailContainer = styled.a`
   position: relative;
@@ -145,6 +145,7 @@ export const TagContainer = styled.div`
     font-size: 1.4rem;
     font-weight: 300;
     padding: 0.35rem 0.5rem 0.4rem;
+    ${TagLabelEffect}
   }
 `;
 

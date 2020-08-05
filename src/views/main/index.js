@@ -8,7 +8,7 @@ import { fetchEntries } from "../../vendor/contentful-client";
 import { getPaginationQuery, SKIP_GAP } from "./helper/configure-pagination";
 import { spr } from "../../vendor/spr";
 import CircleSpinner from "../../components/circle-spinner";
-import TagDropdown from "../../components/tag-dropdown";
+import TagFilter from "../../components/tag-filter";
 
 export const Main = ({ initialSkip, initialPosts, total }) => {
   const { sentinel, posts, isFetching } = useInfiniteScroll(
@@ -26,7 +26,7 @@ export const Main = ({ initialSkip, initialPosts, total }) => {
       <S.ContentContainer>
         <S.GridContentContainer>
           <S.TagDropdownContainer>
-            <TagDropdown />
+            <TagFilter />
           </S.TagDropdownContainer>
           {!!posts.length
             ? posts.map((post) => (

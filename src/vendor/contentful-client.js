@@ -3,6 +3,8 @@ const client = require("contentful").createClient({
   accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
 });
 
+client.sync({ initial: true });
+
 export async function fetchEntries(query) {
   const result = await client.getEntries(query);
   const { items, total } = result;

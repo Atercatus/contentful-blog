@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { TAG_COLOR } from "../../common/constants/color-table";
 
 export const TagLabel = styled.a`
@@ -14,6 +14,11 @@ export const TagLabel = styled.a`
   width: fit-content;
   margin-right: 0.7rem;
   text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+`;
+
+export const TagLabelEffect = css`
   transition: ease transform 0.3s;
 
   &:hover {

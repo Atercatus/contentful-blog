@@ -71,6 +71,7 @@ export const GridContentContainer = styled.div`
   @media only screen and (max-width: ${WINDOW_MAX_WIDTH.MOBILE}px) {
     width: ${CONTENT_WIDTH.MOBILE};
     padding: 8rem 0;
+    grid-column-gap: 0;
   }
 `;
 

@@ -3,6 +3,7 @@ import { MoreMark } from "../../svgs/more-mark/styles";
 import { CalendarSVG } from "../../svgs/calendar/styles";
 import { POST_CONTENT_WIDTH } from "../../common/constants/grid-system";
 import { Anchor } from "./helper/styles";
+import { TagLabel, TagLabelEffect } from "../../components/tag-label/styles";
 
 export const Article = styled.article`
   font-family: "Noto Sans", "Noto Sans KR", sans-serif;
@@ -116,7 +117,6 @@ export const CaptionContainer = styled.div`
 export const Caption = styled.a`
   text-decoration: none;
   font-size: 1.4rem;
-  /* color: #7689b4; */
   color: #757575;
 `;
 
@@ -126,4 +126,8 @@ export const TagContainer = styled.div`
   display: flex;
   justify-content: flex-start;
   align-items: center;
+
+  ${TagLabel} {
+    ${TagLabelEffect}
+  }
 `;

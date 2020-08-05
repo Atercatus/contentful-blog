@@ -14,11 +14,21 @@ import TwitterSVG from "../../svgs/twitter";
 import CalendarSVG from "../../svgs/calendar";
 import TagLabel from "../../components/tag-label";
 import { spr } from "../../vendor/spr";
+import { getLongdate } from "../../vendor/date-format-helper";
 
 export const Post = ({ post }) => {
-  const { title, description, mdBody, richBody, heroImage, tags } = post.fields;
+  const {
+    title,
+    description,
+    mdBody,
+    richBody,
+    heroImage,
+    tags,
+    publishDate,
+  } = post.fields;
   const heroImageUrl = heroImage.fields.file.url;
   const [caption, source] = heroImage.fields.description.split("\n");
+  const creationDate = getLongdate(new Date(publishDate));
 
   return (
     <>
@@ -35,8 +45,8 @@ export const Post = ({ post }) => {
             </S.TagContainer>
             <S.PostMeta>
               <S.PublishDate>
-                <CalendarSVG width={20} height={20} />
-                May 05, 2020
+                <CalendarSVG width={24} height={24} />
+                {creationDate}
               </S.PublishDate>
               <S.SocialBtnContainer>
                 <TwitterSVG width={20} height={20} />

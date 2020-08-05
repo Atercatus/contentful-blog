@@ -11,5 +11,6 @@ export const TAG_COLOR = {
   typescript: "#808080",
   java: "#B8255F",
   "nest.js": "#4073FF",
+  essay: "#4B134A",
   default: "#292929",
 };
